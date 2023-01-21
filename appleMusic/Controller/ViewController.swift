@@ -7,16 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        setupTableView()
+
     }
 
     func setupTableView() {
         myTableView.dataSource = self
         myTableView.delegate = self
+        
+        myTableView.register(UINib(nibName: Cell.musicCellIdentifier, bundle: nil), forCellReuseIdentifier: Cell.musicCellIdentifier)
     }
     
     @IBOutlet weak var myTableView: UITableView!

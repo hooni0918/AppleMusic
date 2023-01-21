@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+//MARK:  - 데이터 모델
+// 실제 api에서 받게되는 정보
+
