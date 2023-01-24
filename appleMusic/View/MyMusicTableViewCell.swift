@@ -9,6 +9,15 @@ import UIKit
 
 class MyMusicTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var albumNameLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
