@@ -22,6 +22,7 @@ static let shared = NetworkManager()
     typealias NetworkCompletion = (Result<[Music], NetworkError>) -> Void
 
     // 네트워킹 요청하는 함수 (음악데이터 가져오기)
+    // 네트워킹에서 가져와야 하니까 private 안붙임
     func fetchMusic(searchTerm: String, completion: @escaping NetworkCompletion) {
         let urlString = "\(MusicApi.requestUrl)\(MusicApi.mediaParam)&term=\(searchTerm)"
         print(urlString)

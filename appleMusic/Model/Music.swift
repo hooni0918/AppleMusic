@@ -5,6 +5,9 @@
 //  Created by 이지훈 on 2023/01/21.
 //
 
+//quickType io 에서 변환
+import Foundation
+
 //MARK: - 데이터 모델
 
 // 실제 API에서 받게 되는 정보
@@ -18,6 +21,7 @@ struct MusicData: Codable {
 // (서버에서 가져온 데이터만 표시해주면 되기 때문에 일반적으로 구조체로 만듦)
 
 struct Music: Codable {
+    
     let songName: String?
     let artistName: String?
     let albumName: String?
@@ -35,7 +39,7 @@ struct Music: Codable {
         case imageUrl = "artworkUrl100"
         case releaseDate
     }
-    
+
     // (출시 정보에 대한 날짜를 잘 계산하기 위해서) 계산 속성으로
     // "2011-07-05T12:00:00Z" ===> "yyyy-MM-dd"
     var releaseDateString: String? {

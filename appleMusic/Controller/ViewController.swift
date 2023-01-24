@@ -8,6 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var myTableView: UITableView!
+    
+    
+    // 네트워크 매니저 (싱글톤)
+    var networkManager = NetworkManager.shared
+    
+    
+    // (음악 데이터를 다루기 위함) 빈배열로 시작
+    var musicArrays: [Music] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +34,53 @@ class ViewController: UIViewController {
         myTableView.register(UINib(nibName: Cell.musicCellIdentifier, bundle: nil), forCellReuseIdentifier: Cell.musicCellIdentifier)
     }
     
-    @IBOutlet weak var myTableView: UITableView!
-    
-    
+    func setupDatas() {
+        //네트워킹의 시작
+        
+        networkManager.fetchMusic(searchTerm: "jazz") { result in
+            
+            switch result {
+            case Result.success(let musicData):
+                
+                self.musicArrays = musicData
+               
+                //self.myTableView.reloadData()
+                
+                //main쓰레드에서 불러오기
+                DispatchQueue.main.async {
+                    self.myTableView.reloadData()
+                }
+                
+                break
+                
+                
+            case Result.failure(let error):
+                print(error.localizedDescription)
+            
+            }
+        }
+    }
 }
+
+
+
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+      return musicArrays.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = myTableView.dequeueReusableCell(withIdentifier: Cell.musicCellIdentifier, for: indexPath) as! MyMusicTableViewCell
+        
+        cell.songNameLabel.text = musicArrays[indexPath.row].songName
+        cell.artistNameLabel.text = musicArrays[indexPath.row].artistName
+        cell.albumNameLabel.text = musicArrays[indexPath.row].albumName
+        cell.releaseDateLabel.text = musicArrays[indexPath.row].releaseDateString
+
+        
+        cell.selectionStyle = .none
+        return cell
     }
 
     
