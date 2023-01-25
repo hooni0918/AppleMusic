@@ -8,6 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    // 🍏 서치 컨트롤러 생성 ===> 네비게이션 아이템에 할당
+//    let searchController = UISearchController()
+    
+    // 🍎 서치 Results컨트롤러 ⭐️
+    //let sear = UISearchController(searchResultsController: <#T##UIViewController?#>)
+    
+    let searchController = UISearchController(searchResultsController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController)
+    
     
     @IBOutlet weak var myTableView: UITableView!
     
