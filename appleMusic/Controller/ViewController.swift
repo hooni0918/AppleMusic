@@ -8,9 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // 🍏 서치 컨트롤러 생성 ===> 네비게이션 아이템에 할당
-//    let searchController = UISearchController()
+    //    let searchController = UISearchController()
     
     // 🍎 서치 Results컨트롤러 ⭐️
     //let sear = UISearchController(searchResultsController: <#T##UIViewController?#>)
@@ -20,22 +20,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     
-    
     // 네트워크 매니저 (싱글톤)
     var networkManager = NetworkManager.shared
-    
     
     // (음악 데이터를 다루기 위함) 빈배열로 시작
     var musicArrays: [Music] = []
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTableView()
-
+        
     }
-
+    
     func setupTableView() {
         myTableView.dataSource = self
         myTableView.delegate = self
@@ -52,7 +50,7 @@ class ViewController: UIViewController {
             case Result.success(let musicData):
                 
                 self.musicArrays = musicData
-               
+                
                 //self.myTableView.reloadData()
                 
                 //main쓰레드에서 불러오기
@@ -65,7 +63,7 @@ class ViewController: UIViewController {
                 
             case Result.failure(let error):
                 print(error.localizedDescription)
-            
+                
             }
         }
     }
@@ -76,9 +74,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return musicArrays.count
+        return musicArrays.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: Cell.musicCellIdentifier, for: indexPath) as! MyMusicTableViewCell
         
@@ -86,12 +84,12 @@ extension ViewController: UITableViewDataSource {
         cell.artistNameLabel.text = musicArrays[indexPath.row].artistName
         cell.albumNameLabel.text = musicArrays[indexPath.row].albumName
         cell.releaseDateLabel.text = musicArrays[indexPath.row].releaseDateString
-
         
+        // 선택
         cell.selectionStyle = .none
         return cell
     }
-
+    
     
 }
 
@@ -100,14 +98,26 @@ extension ViewController: UITableViewDelegate {
     // 테이블뷰 셀의 높이를 유동적으로 조절하고 싶다면 구현할 수 있는 메서드
     // (musicTableView.rowHeight = 120 대신에 사용가능)
     // heightForRowAt 정확한 높이 estimatedHeightForRowAt 추정된 높이
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 120
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return 120
+    //    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
-}
     
+}
+
+extension ViewController: UISearchResultsUpdating {
+    // 글자 입력할때마다 호출되는 메서드 -> 다른화면 보여줄때 구성
+    func updateSearchResults(for searchController: UISearchController) {
+        print("서치바에 입력되는 단어", searchController.searchBar.text ?? "")
+        
+        // 글자를 치는 순간에 다른 화면을 보여주고 싶을때 컬렉션뷰 보이기
+        let vc = searchController.searchResultsController as! SearchResultViewController
+        //컬렉션뷰에 찾으려는 단어 전달
+        vc.searchTerm = searchController.searchBar.text ?? ""
+    }
+}
+
 

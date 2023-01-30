@@ -3,7 +3,6 @@ import UIKit
 
 final class SearchResultViewController: UIViewController {
 
-    // 컬렉션뷰 (테이블뷰와 유사)
     @IBOutlet weak var collectionView: UICollectionView!
     
     // 컬렉션뷰의 레이아웃을 담당하는 객체
@@ -15,7 +14,7 @@ final class SearchResultViewController: UIViewController {
     // (음악 데이터를 다루기 위함) 빈배열로 시작
     var musicArrays: [Music] = []
     
-    // (서치바에서) 검색을 위한 단어를 담는 변수 (전화면에서 전달받음)
+    // (서치바에서) 검색을 위한 단어를 담는 변수 (이전화면에서 전달받음)
     var searchTerm: String? {
         didSet {
             setupDatas()
@@ -33,7 +32,7 @@ final class SearchResultViewController: UIViewController {
 
     func setupCollectionView() {
         // 컬렉션뷰의 레이아웃을 담당하는 객체
-        //let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = UICollectionViewFlowLayout()
         
         collectionView.dataSource = self
         collectionView.backgroundColor = .white

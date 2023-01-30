@@ -19,6 +19,7 @@
 		7817E4BB297C1CD900D40A6C /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E4BA297C1CD900D40A6C /* NetworkingManager.swift */; };
 		7817E4BD297C1CE700D40A6C /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E4BC297C1CE700D40A6C /* Music.swift */; };
 		7817E4E02980D1D200D40A6C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E4DF2980D1D200D40A6C /* SearchResultViewController.swift */; };
+		7817E50429820A7800D40A6C /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E50329820A7800D40A6C /* MusicCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7817E4BA297C1CD900D40A6C /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		7817E4BC297C1CE700D40A6C /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		7817E4DF2980D1D200D40A6C /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		7817E50329820A7800D40A6C /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				7817E4A2297BE01800D40A6C /* Main.storyboard */,
+				7817E50329820A7800D40A6C /* MusicCollectionViewCell.swift */,
 				7817E4B0297C1A8E00D40A6C /* MyMusicTableViewCell.swift */,
 				7817E4B1297C1A8E00D40A6C /* MyMusicTableViewCell.xib */,
 			);
@@ -201,6 +204,7 @@
 				7817E49D297BE01800D40A6C /* AppDelegate.swift in Sources */,
 				7817E4B9297C1CB800D40A6C /* Constant.swift in Sources */,
 				7817E4BB297C1CD900D40A6C /* NetworkingManager.swift in Sources */,
+				7817E50429820A7800D40A6C /* MusicCollectionViewCell.swift in Sources */,
 				7817E4BD297C1CE700D40A6C /* Music.swift in Sources */,
 				7817E49F297BE01800D40A6C /* SceneDelegate.swift in Sources */,
 				7817E4E02980D1D200D40A6C /* SearchResultViewController.swift in Sources */,
