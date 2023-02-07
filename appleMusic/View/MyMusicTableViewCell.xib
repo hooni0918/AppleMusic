@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-e0-u6t">
-                        <rect key="frame" x="140" y="10" width="336" height="82.5"/>
+                        <rect key="frame" x="140" y="27" width="336" height="82.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="SongName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQI-Qu-VUd">
                                 <rect key="frame" x="0.0" y="0.0" width="336" height="19.5"/>
@@ -56,11 +56,11 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="8Xw-Dy-3hx" secondAttribute="bottom" constant="10" id="05l-uE-6WI"/>
                     <constraint firstAttribute="trailing" secondItem="lAg-e0-u6t" secondAttribute="trailing" constant="20" id="3Pb-tJ-KuB"/>
-                    <constraint firstItem="lAg-e0-u6t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ky9-gj-gTz"/>
+                    <constraint firstItem="lAg-e0-u6t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="Ky9-gj-gTz"/>
                     <constraint firstItem="8Xw-Dy-3hx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Mcu-N7-IEv"/>
                     <constraint firstItem="8Xw-Dy-3hx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ZJ9-Kq-hIq"/>
                     <constraint firstAttribute="trailing" secondItem="lAg-e0-u6t" secondAttribute="trailing" constant="20" id="bTY-bt-pYc"/>
-                    <constraint firstAttribute="bottom" secondItem="lAg-e0-u6t" secondAttribute="bottom" constant="10" id="bdy-Ud-P1c"/>
+                    <constraint firstAttribute="bottom" secondItem="lAg-e0-u6t" secondAttribute="bottom" constant="30.5" id="bdy-Ud-P1c"/>
                     <constraint firstItem="lAg-e0-u6t" firstAttribute="leading" secondItem="8Xw-Dy-3hx" secondAttribute="trailing" constant="20" id="mL8-9V-SKj"/>
                 </constraints>
             </tableViewCellContentView>

@@ -16,8 +16,12 @@ enum NetworkError: Error {
 
 final class NetworkManager {
 
+    //싱글톤으로 생성 (여러 화면에서 해야 하니까)
 static let shared = NetworkManager()
+    
+    //여러 객체 추가생성 못하게 하기 위한 설정
     private init() {}
+    
     
     typealias NetworkCompletion = (Result<[Music], NetworkError>) -> Void
 

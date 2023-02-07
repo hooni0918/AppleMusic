@@ -30,9 +30,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSearchBar()
         setupTableView()
-        
+        setupDatas()
     }
+    
+    // 서치바 셋팅
+    func setupSearchBar() {
+        self.title = "Music Search"
+        navigationItem.searchController = searchController
+        
+        // 🍏 1) (단순)서치바의 사용
+        //searchController.searchBar.delegate = self
+        
+        
+        // 🍎 2) 서치(결과)컨트롤러의 사용 (복잡한 구현 가능)
+        //     ==> 글자마다 검색 기능 + 새로운 화면을 보여주는 것도 가능
+        searchController.searchResultsUpdater = self
+        
+        // 첫글자 대문자 설정 없애기
+        searchController.searchBar.autocapitalizationType = .none
+    }
+    
     
     func setupTableView() {
         myTableView.dataSource = self
